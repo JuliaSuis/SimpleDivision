@@ -7,6 +7,6 @@
 
     <string name="nan_error">Nan result</string>
     <string name="inf_error">Inf result</string>
-    <string name="valid_error">Error! Enter valid numbers.</string>
+    <string name="valid_error">Err: enter valid numbers.</string>
     <string name="error">Error!</string>
 </resources>
