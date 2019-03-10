@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">SimpleDivision</string>
+    <string name="insert"> </string>
+    <string name="division"> / </string>
+    <string name="hint_result">result</string>
+    <string name="results"> = </string>
+</resources>
