@@ -1,13 +1,14 @@
 package com.example.simpledivision;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-    private Division division = new Division();
+
+    private Operation operation = new Division();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,20 +17,25 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public static int parseEditText(EditText a){
-        int int_a = Integer.parseInt(a.getText().toString());
-        return int_a;
+
+        return Integer.parseInt(a.getText().toString());
     }
 
     public void onClickDivide(View view){
-
-        EditText a = (EditText) findViewById(R.id.first);
-        EditText b = (EditText) findViewById(R.id.second);
-        TextView result = (TextView) findViewById(R.id.results);
+        EditText a = findViewById(R.id.first);
+        EditText b = findViewById(R.id.second);
+        TextView result = findViewById(R.id.results);
         try {
-            double res = division.makeDivision(parseEditText(a), parseEditText(b));
-            result.setText(String.format("%.2f", res));
+            double res = operation.execute(parseEditText(a), parseEditText(b));
+            if (Double.isNaN(res)) {
+                result.setText("Error! Division by zero.");
+            } else {
+                result.setText(String.format("%.2f", res));
+            }
+        } catch (NumberFormatException e) {
+            result.setText("Error! Enter valid numbers.");
         } catch (Exception e) {
-            result.setText("Error! Enter both numbers.");
+            result.setText("Error! Smth went wrong.");
         }
 
     }

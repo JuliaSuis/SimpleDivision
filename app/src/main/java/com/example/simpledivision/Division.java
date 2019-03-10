@@ -1,11 +1,9 @@
 package com.example.simpledivision;
 
-public class Division {
+public class Division implements Operation {
 
-    public static double makeDivision(int a, int b){
-        double result;
-        result = a / (double)b;
-        return result;
+    @Override
+    public double execute(int a, int b) {
+        return a / (double) b;
     }
-
 }
