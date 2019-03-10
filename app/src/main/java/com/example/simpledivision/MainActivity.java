@@ -28,14 +28,16 @@ public class MainActivity extends AppCompatActivity {
         try {
             double res = operation.execute(parseEditText(a), parseEditText(b));
             if (Double.isNaN(res)) {
-                result.setText("Error! Division by zero.");
+                result.setText(getString(R.string.nan_error));
+            } else if (Double.isInfinite(res)) {
+                result.setText(getString(R.string.inf_error));
             } else {
                 result.setText(String.format("%.2f", res));
             }
         } catch (NumberFormatException e) {
-            result.setText("Error! Enter valid numbers.");
+            result.setText(getString(R.string.valid_error));
         } catch (Exception e) {
-            result.setText("Error! Smth went wrong.");
+            result.setText(getString(R.string.error));
         }
 
     }
